@@ -47,10 +47,10 @@ class DB_halper:
             print(e)
 
 
-    def insert_new_to_WishList(self, wishListName, *args_for_db):
-        query="INSERT INTO %s(name, price, comment, link) VALUES(%s,%s, %s, %s)"
+    def insert_new_to_WishList(self,  *args_for_db):
+        query="INSERT INTO users (name, price, comment, link) VALUES(%s,%s, %s, %s)"
         args = list()
-        args.append(wishListName)
+
         for r in args_for_db:
             args.append(r)
         try:
@@ -138,9 +138,9 @@ class DB_halper:
 if __name__ == '__main__':
    dbHalper=DB_halper()
 
-   test_args=["users","test2", 300, "LOL0", "HTTPS//00"]
+   test_args=["test2", 300, "LOL01", "HTTPS//01"]
    # dbHalper.update_wish(test_args[0], test_args[1], test_args[2], test_args[3])
-   dbHalper.insert_new_to_WishList(test_args[0], test_args[1], test_args[2], test_args[3], test_args[4])
+   dbHalper.insert_new_to_WishList(test_args[0], test_args[1], test_args[2], test_args[3])
    print(dbHalper.select_all_rows())
    # test_var_args(1, "two", 3)
 
